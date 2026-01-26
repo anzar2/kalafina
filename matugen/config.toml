@@ -8,7 +8,7 @@ input_path = "./templates/hyprland-colors.conf"
 output_path = "~/.config/hypr/config/colors.conf"
 
 [templates.kitty]
-input_path = "~./templates/kitty-colors.conf"
+input_path = "./templates/kitty-colors.conf"
 output_path = "~/.config/kitty/colors.conf"
 
 [templates.fuzzel]
