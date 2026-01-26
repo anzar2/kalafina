@@ -1,0 +1,16 @@
+[config.wallpaper]
+set = false
+command = "swww"
+arguments = ["img", "--transition-type", "center"]
+
+[templates.hyprland]
+input_path = "./templates/hyprland-colors.conf"
+output_path = "~/.config/hypr/config/colors.conf"
+
+[templates.kitty]
+input_path = "~./templates/kitty-colors.conf"
+output_path = "~/.config/kitty/colors.conf"
+
+[templates.fuzzel]
+input_path = "./templates/fuzzel-colors.ini"
+output_path = "~/.config/fuzzel/colors.ini"
