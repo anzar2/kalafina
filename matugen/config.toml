@@ -14,3 +14,7 @@ output_path = "~/.config/kitty/colors.conf"
 [templates.fuzzel]
 input_path = "./templates/fuzzel-colors.ini"
 output_path = "~/.config/fuzzel/colors.ini"
+
+[templates.qs]
+input_path = "./templates/quickshell-colors.conf"
+output_path = "~/.config/quickshell/Colors.qml"
