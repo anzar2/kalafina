@@ -1,20 +1,20 @@
 pragma ComponentBehavior: Bound
-import Quickshell
-import QtQuick
-import Quickshell.Wayland
-import Quickshell.Hyprland
 import "../../"
 import "../workspaces/"
 import "../clock/"
 import "../notifications/"
 import "../systemtray/"
-import "../utils/"
-import "../../widgets/"
+import "../../utils"
+import "../audio/"
+import QtQuick
+import Quickshell.Wayland
+import Quickshell.Hyprland
 
-PanelWindow {
+
+StyledPanelWindow {
   id: bar
-  color: Colors.surface
   implicitHeight: Config.settings.panel.size
+  background.radius: 0
   WlrLayershell.namespace: "panel"
   WlrLayershell.layer: Hyprland.focusedMonitor?.activeWorkspace?.hasFullscreen ? WlrLayershell.Top : WlrLayershell.Overlay
   
@@ -24,6 +24,7 @@ PanelWindow {
     anchors.leftMargin: 16
     anchors.left: parent.left
     anchors.verticalCenter: parent.verticalCenter
+    
     Workspaces {
       anchors.verticalCenter: parent.verticalCenter
     }
@@ -46,25 +47,18 @@ PanelWindow {
     TrayIcons {
       anchors.verticalCenter: parent.verticalCenter
     }
-
+    
     Row {
       id: controlCenter
       spacing: 0
       anchors.verticalCenter: parent.verticalCenter
       
-      StyledButton {
-        id: sound
-        nerdIcon.text: {
-          if (AudioService.volume > 50) return "󰕾"
-          if (AudioService.volume > 10) return "󰖀"
-          return "󰕿"
-        }
-        onClicked: AudioService.toggleAudioWidget()
-        backgroundRect.color: hovered || AudioService.showAudioWidget ? Colors.surface_container_high : "transparent"
-      }
+      Audio {}
     }
-       
-    Clock {}
+
+    Clock {
+      anchors.verticalCenter: parent.verticalCenter
+    }
     Notifications {}
   }
 }

@@ -8,9 +8,15 @@
     "borderWidth": 4,
     "borderRadius": 4
   },
+  "workspaces": {
+    "workspaceSpacing": 8,
+    "iconSpacing": 4,
+    "iconSize": 16,
+    "radius": 24
+  },
   "panel": {
-    "position": "top",
     "size": 40,
+    "position": "top",
     "start": {
       "moduleSpacing": 8
     },
@@ -22,15 +28,10 @@
     }
   },
   "notifications": {
-    "anchors": {
-      "top": false,
-      "right": true,
-      "left": false,
-      "bottom": true
-    }
+    "displayTime": 4000
   },
   "systemTray": {
-    "padding": 4,
+    "padding": 5,
     "spacing": 8,
     "iconSize": 16
   },
@@ -42,12 +43,5 @@
     "verticalFormat": "hh\nmm",
     "fontSize": 15,
     "bold": true
-  },
-  "workspaces": {
-    "indicatorSpacing": 8,
-    "indicatorSize": 8,
-    "indicatorRadius": 10,
-    "borderRadius": 4,
-    "padding": 6
   }
 }

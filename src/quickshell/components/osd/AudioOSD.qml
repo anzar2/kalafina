@@ -3,7 +3,7 @@ import QtQuick
 import QtQuick.Controls
 import Quickshell.Wayland
 import "../.."
-import "../utils/"
+import "../../utils/"
 
 PanelWindow {
   id: root
@@ -31,10 +31,10 @@ PanelWindow {
       id: bg
       implicitWidth: 235
       implicitHeight: osdRow.height + 10
-      color: Colors.surface
+      color: Theme.colors.surface 
       radius: 8
       border.width: 1
-      border.color: Qt.alpha(Colors.outline, 0.15)
+      border.color: Qt.alpha(Theme.colors.outline, 0.15)
 
       Row {
         id: osdRow

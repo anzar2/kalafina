@@ -55,6 +55,10 @@ FileView {
         property int moduleSpacing: 8
       }
 
+      function isVertical(): bool {
+        return position === "left" || position === "right"
+      }
+
     }
 
     property JsonObject clock: JsonObject {
@@ -66,11 +70,10 @@ FileView {
     }
 
     property JsonObject workspaces: JsonObject {
-      property real indicatorSpacing: 8
-      property real padding: 6
-      property real indicatorSize: 8
-      property real indicatorRadius: 10
-      property real borderRadius: 4
+      property real workspaceSpacing: 8
+      property real iconSpacing: 8
+      property real iconSize: 16
+      property real radius: 99
     }
 
     property JsonObject systemTray: JsonObject {
@@ -90,12 +93,7 @@ FileView {
     }
 
     property JsonObject notifications: JsonObject {
-      property JsonObject anchors: JsonObject {
-        property bool top: true
-        property bool right: true
-        property bool left: false
-        property bool bottom: false
-      }
+      property real displayTime: 4000
     }
   }
 }

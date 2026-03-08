@@ -1,14 +1,14 @@
 pragma ComponentBehavior: Bound
-import Quickshell
 import QtQuick
 import Quickshell.Services.SystemTray
 import Quickshell.Widgets
 import "../../"
+import "../../utils"
 
 Rectangle {
   id: bg
-  color: Qt.alpha(Colors.primary, 0.0)
-  radius: 4
+  color: Qt.alpha(Theme.colors.primary, 0.2)
+  radius: 99
   implicitWidth: icons.width
   implicitHeight: icons.height
   visible: SystemTray.items.values.length > 0
@@ -28,24 +28,31 @@ Rectangle {
     Repeater {
       model: SystemTray.items
 
-      IconImage {
+       Item {
         required property SystemTrayItem modelData
-        id: iconImg
-        source: modelData.icon
-        implicitSize: Config.settings.systemTray.iconSize
+        implicitWidth: Config.settings.systemTray.iconSize
+        implicitHeight: Config.settings.systemTray.iconSize
 
         HoverHandler {
-          id: hoverHandler
           cursorShape: Qt.PointingHandCursor
         }
-
         TapHandler {
-          id: tapHandler
-          onDoubleTapped: {
-            iconImg.modelData.activate()
-          }
+          onDoubleTapped: parent.modelData.activate()
         }
-      }   
+
+        IconImage {
+          anchors.fill: parent
+          source: parent.modelData.icon
+          visible: NerdIcons.get(parent.modelData.id) === null
+        }
+
+        StyledText {
+          text: NerdIcons.get(parent.modelData.id)
+          anchors.centerIn: parent
+          visible: NerdIcons.get(parent.modelData.id)
+          color: Theme.colors.on_surface
+        }
+      } 
     }
   }
 }

@@ -16,5 +16,5 @@ input_path = "./templates/fuzzel-colors.ini"
 output_path = "~/.config/fuzzel/colors.ini"
 
 [templates.qs]
-input_path = "./templates/quickshell-colors.conf"
-output_path = "~/.config/quickshell/theme/Colors.qml"
+input_path = "./templates/quickshell-colors.json"
+output_path = "~/.config/quickshell/theme/colors.json"

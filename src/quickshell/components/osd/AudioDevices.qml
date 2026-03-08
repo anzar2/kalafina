@@ -7,9 +7,9 @@ Rectangle {
   implicitHeight: 0
   implicitWidth: parent.width
   radius: 8
-  color: Colors.surface
+  color: Theme.colors.surface
   border.width: 1
-  border.color: Qt.alpha(Colors.outline, 0.3)
+  border.color: Qt.alpha(Theme.colors.outline, 0.3)
   clip: true
 
   ScrollView {
@@ -29,7 +29,7 @@ Rectangle {
 
         Rectangle {
           radius: 3
-          color: hoverHandler.hovered ? Qt.alpha(Colors.secondary, 0.1) : "transparent"
+          color: hoverHandler.hovered ? Qt.alpha(Theme.colors.secondary, 0.1) : "transparent"
           implicitHeight: 34
           implicitWidth: devices.width
 
@@ -53,7 +53,7 @@ Rectangle {
             
             Text {
               text: "󰓃"
-              color: Colors.on_surface
+              color: Theme.colors.on_surface
               anchors.leftMargin: 8
               font.pixelSize: 18
               anchors.verticalCenter: parent.verticalCenter
@@ -61,7 +61,7 @@ Rectangle {
 
             Text {
               text: modelData.nickname
-              color: Colors.on_surface
+              color: Theme.colors.on_surface
               width: 150
               anchors.verticalCenter: parent.verticalCenter
               elide: Text.ElideRight
@@ -71,7 +71,7 @@ Rectangle {
 
           Text {
               text: AudioService.audioSink?.id === modelData?.id ? "" : ""
-              color: Colors.on_surface
+              color: Theme.colors.on_surface
               anchors.right: parent.right
               anchors.rightMargin: 8
               anchors.verticalCenter: parent.verticalCenter

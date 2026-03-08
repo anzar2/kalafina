@@ -1,10 +1,10 @@
 import QtQuick
 import QtQuick.Controls
-import "../../"
+import ".."
 
 Button {
   id: root
-  property color textColor: Colors.on_surface
+  property color textColor: Theme.colors.on_surface
   property int textWrap: Text.NoWrap
   property bool animated: true
   property int gapBetweenIcon: 8
@@ -13,7 +13,7 @@ Button {
 
   background: Rectangle {
     id: bg
-    color: root.hovered ? Qt.alpha(Colors.primary, 0.05) : "transparent"
+    color: root.hovered ? Qt.alpha(Theme.colors.primary, 0.05) : "transparent"
     radius: 4
   }
   contentItem: Row {
@@ -35,11 +35,12 @@ Button {
       font.bold: root.font.bold
     }
   }
-  padding: 0
+  
   leftPadding: 6
   rightPadding: 6
-  topPadding: 2
-  bottomPadding: 2
+  topPadding: 3
+  bottomPadding: 3
+  padding: 0
   font.pointSize: 12
   scale: pressed && animated ? 0.98 : 1
     

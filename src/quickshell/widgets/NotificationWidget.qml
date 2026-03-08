@@ -1,6 +1,6 @@
 import Quickshell
 import ".."
-import "../components/utils/"
+import "../utils/"
 import "../components/notifications/"
 import QtQuick
 import Quickshell.Wayland
@@ -16,6 +16,7 @@ StyledPanelWindow {
   
   WlrLayershell.exclusionMode: WlrLayershell.Normal
   WlrLayershell.layer: Hyprland.focusedMonitor?.activeWorkspace?.hasFullscreen ? WlrLayershell.Overlay : WlrLayershell.Top
+  
   implicitWidth: 350
   implicitHeight: NotificationService.server.globalNotificationsCount > 0  ? 190 : 45
 
@@ -36,7 +37,7 @@ StyledPanelWindow {
   }
 
   background.border.width: 1
-  background.border.color: Colors.surface_container_highest
+  background.border.color: Theme.colors.surface_container_highest
 
   Component.onDestruction: {
     NotificationService.properties.panelCollapsed = false
@@ -60,14 +61,14 @@ StyledPanelWindow {
         anchors.verticalCenter: parent.verticalCenter
         text: ""
         font.pixelSize: 16
-        color: Colors.on_surface
+        color: Theme.colors.on_surface
       }
 
       Text {
         anchors.verticalCenter: parent.verticalCenter
         text: NotificationService.server.globalNotificationsCount
         font.pixelSize: 13
-        color: Colors.on_surface
+        color: Theme.colors.on_surface
       }
     }
           

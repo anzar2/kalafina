@@ -1,7 +1,7 @@
 import Quickshell
 import QtQuick
 import "../../"
-import "../utils/"
+import "../../utils/"
 
 StyledButton {
   nerdIcon.text: {
@@ -12,7 +12,7 @@ StyledButton {
     return NotificationService.properties.dnd ? "󰒲" : "󱜽"
   }
   onClicked: NotificationService.properties.togglePanel()
-  backgroundRect.color: NotificationService.properties.showPanel || hovered ? Colors.surface_container_high : "transparent"
+  backgroundRect.color: NotificationService.properties.showPanel || hovered ? Theme.colors.surface_container_high : "transparent"
 
   Rectangle {
     anchors.right: parent.right

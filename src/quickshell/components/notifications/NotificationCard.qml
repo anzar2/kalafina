@@ -2,7 +2,7 @@ import Quickshell
 import QtQuick
 import QtQuick.Controls
 import Quickshell.Widgets
-import "../utils/"
+import "../../utils/"
 import "../../"
 
 Rectangle {
@@ -16,7 +16,7 @@ Rectangle {
   implicitWidth: parent.width
   implicitHeight: 135
   radius: 4
-  color: hoverHandler.hovered ? Colors.surface_container : Colors.surface_container_low
+  color: hoverHandler.hovered ? Theme.colors.surface_container : Theme.colors.surface_container_low
               
   Button {
     id: dismissButton
@@ -27,11 +27,11 @@ Rectangle {
     anchors.topMargin: 8
 
     background: Rectangle {
-      color: dismissButton.hovered ? Colors.surface_container_highest : Colors.surface_container_high
+      color: dismissButton.hovered ? Theme.colors.surface_container_highest : Theme.colors.surface_container_high
       radius: 10
     }
     contentItem: Text {
-      color: Colors.on_surface
+      color: Theme.colors.on_surface
       padding: 2
       topPadding: -6
       bottomPadding: -3
@@ -51,7 +51,7 @@ Rectangle {
       bottomPadding: 8
       font.capitalization: Font.Capitalize
       size: 9
-      color: Colors.on_surface_variant
+      color: Theme.colors.on_surface_variant
       font.bold: true
     }
 
@@ -70,7 +70,7 @@ Rectangle {
           id: notificationTitle
           text: ""
           visible: true
-          color: Colors.on_surface
+          color: Theme.colors.on_surface
           size: 10
           elide: Text.ElideRight
           width: 200

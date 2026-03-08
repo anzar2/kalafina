@@ -2,11 +2,10 @@ pragma ComponentBehavior: Bound
 import Quickshell
 import QtQuick
 import Quickshell.Services.Notifications
-import "./theme/" //  NOTE: import needed for watching changes on Colors.qml (idk if theres a better method)
 import "./components/layout/"
 import "./components/osd/"
 import "./widgets/"
-import "./components/utils/"
+import "./utils/"
 import "./components/panels/"
 
 ShellRoot {
@@ -153,7 +152,7 @@ ShellRoot {
 
     Timer {
       id: notificationTimer
-      interval: 4000
+      interval: Config.settings.notifications.displayTime
       running: false
       repeat: false
       onTriggered: {

@@ -32,7 +32,7 @@ PanelWindow {
         Rectangle {
             id: background
             anchors.fill: parent
-            color: Colors.surface
+            color: Theme.colors.surface
 
             layer.enabled: true
             layer.effect: MultiEffect {
@@ -42,6 +42,7 @@ PanelWindow {
                 maskThresholdMin: 0.5
                 maskSpreadAtMin: 1
             }
+            Behavior on color { ColorAnimation {} }
         }
 
         Item {
@@ -52,10 +53,10 @@ PanelWindow {
 
             Rectangle {
                 anchors.fill: parent
-                anchors.leftMargin: Config.settings.shellFrame.borderWidth
-                anchors.rightMargin: Config.settings.shellFrame.borderWidth
-                anchors.topMargin: Config.settings.shellFrame.borderWidth
-                anchors.bottomMargin: Config.settings.shellFrame.borderWidth
+                anchors.leftMargin: Config.settings.panel.position === "left"       ? 0 : Config.settings.shellFrame.borderWidth
+                anchors.rightMargin: Config.settings.panel.position === "right"     ? 0 : Config.settings.shellFrame.borderWidth
+                anchors.topMargin: Config.settings.panel.position === "top"         ? 0 : Config.settings.shellFrame.borderWidth
+                anchors.bottomMargin: Config.settings.panel.position === "bottom"   ? 0 : Config.settings.shellFrame.borderWidth
                 radius: Config.settings.shellFrame.borderRadius
             }
         }

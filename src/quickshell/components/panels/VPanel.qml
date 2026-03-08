@@ -3,15 +3,16 @@ import "../workspaces/"
 import "../clock/"
 import "../systemtray/"
 import "../notifications/"
-import Quickshell
+import "../../utils/"
 import QtQuick
 import Quickshell.Wayland
 import Quickshell.Hyprland
 
-PanelWindow {
+StyledPanelWindow {
   id: bar
-  color: Colors.surface
   implicitWidth: Config.settings.panel.size
+  background.radius: 0
+
   WlrLayershell.namespace: "panel"
   WlrLayershell.layer: Hyprland.focusedMonitor.activeWorkspace.hasFullscreen ? WlrLayershell.Top : WlrLayershell.Overlay
 

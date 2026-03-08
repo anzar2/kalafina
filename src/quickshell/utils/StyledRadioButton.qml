@@ -1,4 +1,4 @@
-import "../../"
+import ".."
 import QtQuick.Controls
 import QtQuick
 
@@ -16,7 +16,7 @@ RadioButton {
     height: control.size
     radius: control.borderRadius
     border.width: control.borderWidth
-    border.color: control.checked ? Colors.primary : Colors.outline
+    border.color: control.checked ? Theme.colors.primary : Theme.colors.outline
     color: "transparent"
 
     Rectangle {
@@ -24,7 +24,7 @@ RadioButton {
       width: control.size / 1.5
       height: control.size / 1.5
       radius: control.borderRadius
-      color: control.checked ? Colors.primary : "transparent"
+      color: control.checked ? Theme.colors.primary : "transparent"
 
       Behavior on color { ColorAnimation { duration: 200 } }
     }

@@ -1,4 +1,4 @@
-import "../.."
+import ".."
 import Quickshell
 import Quickshell.Wayland
 import QtQuick
@@ -12,13 +12,16 @@ PanelWindow {
   implicitHeight: 100
   color: "transparent"
 
-  WlrLayershell.exclusionMode: WlrLayershell.Normal
+  // WlrLayershell.exclusionMode: WlrLayershell.Normal
 
   Rectangle {
     id: bg
-    color: Colors.surface
+    color: Theme.colors.surface
     radius: 8
     anchors.fill: parent
+    Behavior on color {
+      ColorAnimation {  }
+    }
   }
 
   MouseArea {

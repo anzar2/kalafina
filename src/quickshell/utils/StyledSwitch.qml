@@ -1,6 +1,6 @@
 import QtQuick
 import QtQuick.Controls
-import "../../"
+import ".."
 
 Switch {
   id: root
@@ -14,15 +14,15 @@ Switch {
     implicitHeight: 16
     
     radius: 4
-    color: root.checked ? Colors.inverse_primary : Colors.surface_container_highest
+    color: root.checked ? Theme.colors.inverse_primary : Theme.colors.surface_container_highest
 
     Rectangle {
       x: root.checked ? parent.width - width : 0
       width: 16
       height: 16
       radius: 4
-      color: Colors.on_surface
-      border.color: Colors.outline
+      color: Theme.colors.on_surface
+      border.color: Theme.colors.outline
 
       Behavior on x {
           NumberAnimation { duration: 150 }

@@ -1,18 +1,19 @@
 pragma ComponentBehavior: Bound
-import Quickshell
 import QtQuick
 import Quickshell.Widgets
 import Quickshell.Hyprland
 import "../.."
-import "../utils/"
+import "../../utils/"
 
 Rectangle {
   id: root
-  property bool panelVertical: Config.settings.panel.position === "right" || Config.settings.panel.position === "left"
-  implicitWidth: workspacesFlow.width
-  implicitHeight: workspacesFlow.height
-  color: Qt.alpha(Colors.primary, 0.1)
-  radius: 99
+  property bool panelVertical: Config.settings.panel.isVertical()
+  property int sizeMargin: 16
+
+  implicitWidth: panelVertical ? Config.settings.panel.size - sizeMargin : workspacesFlow.width
+  implicitHeight: panelVertical ? workspacesFlow.height : Config.settings.panel.size - sizeMargin
+  color: Qt.alpha(Theme.colors.primary, 0.1)
+  radius: Config.settings.workspaces.radius
 
   MouseArea {
     anchors.fill: parent
@@ -27,11 +28,8 @@ Rectangle {
   Flow {
     id: workspacesFlow
     anchors.centerIn: parent
-    leftPadding: !root.panelVertical ? 12 : 8
-    rightPadding: !root.panelVertical ? 12 : 8
-    topPadding: root.panelVertical ? 12 : 8 
-    bottomPadding: root.panelVertical ? 12 : 8
-    spacing: 8
+    padding: 12
+    spacing: Config.settings.workspaces.workspaceSpacing
     flow: root.panelVertical ?  Flow.TopToBottom : Flow.LeftToRight
  
     Repeater {
@@ -41,27 +39,27 @@ Rectangle {
         required property HyprlandWorkspace modelData
         property bool isFocused: modelData.id === Hyprland.focusedWorkspace.id
         property int toplevelsCount: modelData.toplevels.values.length
-        implicitWidth: root.panelVertical ? 12 : indicator.width
-        implicitHeight: root.panelVertical ? indicator.height : 12
+        implicitWidth: root.panelVertical ? root.width : indicator.width
+        implicitHeight: root.panelVertical ? indicator.height : root.height
+          
+        TapHandler { onSingleTapped: workspace.modelData.activate() }
+        HoverHandler { id: hoverHandler; cursorShape: Qt.PointingHandCursor }
 
         Rectangle {
           id: indicator
-          implicitWidth: toplevelsFlow.width
-          implicitHeight: toplevelsFlow.height
-          
+          implicitWidth: workspace.isFocused || workspace.toplevelsCount > 0 ? toplevelsFlow.width : 8
+          implicitHeight: workspace.isFocused || workspace.toplevelsCount > 0 ? toplevelsFlow.height : 8
           radius: root.radius
-          color: workspace.isFocused || hoverHandler.hovered ? Qt.alpha(Colors.on_surface, 0.3) : Qt.alpha(Colors.primary, 0.1)
+          color: workspace.isFocused || hoverHandler.hovered ? Qt.alpha(Theme.colors.on_surface, 0.3) : Qt.alpha(Theme.colors.primary, 0.1)
           anchors.centerIn: parent
           
           Behavior on implicitHeight { NumberAnimation { duration: 100; easing.type: Easing.OutQuad } }
           Behavior on implicitWidth { NumberAnimation { duration: 100; easing.type: Easing.OutQuad } }
           Behavior on color { ColorAnimation { duration: 100; easing.type: Easing.OutQuad } }
-          TapHandler { onSingleTapped: workspace.modelData.activate() }
-          HoverHandler { id: hoverHandler; cursorShape: Qt.PointingHandCursor }
-                    
+                   
           Flow {
             id: toplevelsFlow
-            spacing: 8
+            spacing: Config.settings.workspaces.iconSpacing
             padding: 4
             flow: root.panelVertical ?  Flow.TopToBottom : Flow.LeftToRight
             anchors.centerIn: parent
@@ -72,8 +70,12 @@ Rectangle {
                 id: toplevel
                 required property HyprlandToplevel modelData 
                 source: IconsMap.get(modelData.lastIpcObject.initialClass)
-                implicitSize: 18
-
+                implicitSize: {
+                  if (Config.settings.workspaces.iconSize > 0) { // This means automatic sizing
+                    return Config.settings.workspaces.iconSize
+                  }
+                  return 16
+                }
                 Component.onCompleted: Hyprland.refreshToplevels()
               }
             }

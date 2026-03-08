@@ -1,6 +1,6 @@
 pragma ComponentBehavior: Bound
 import ".."
-import "../components/utils/"
+import "../utils"
 import QtQuick
 import Quickshell.Services.Pipewire
 import Quickshell.Widgets
@@ -16,7 +16,7 @@ StyledPanelWindow {
   margins.bottom: 10
 
   background.border.width: 1
-  background.border.color: Colors.surface_container_highest
+  background.border.color: Theme.colors.surface_container_highest
   
   Column {
     id: widgetBody
@@ -30,7 +30,7 @@ StyledPanelWindow {
       id: master
       implicitWidth: parent.width
       implicitHeight: 50
-      color: Colors.surface_container
+      color: Theme.colors.surface_container
       radius: 4
 
       Column {
@@ -67,7 +67,7 @@ StyledPanelWindow {
       property bool collapsed: true
       implicitWidth: parent.width
       implicitHeight: collapsed ? collapseButton.height + 100 : collapseButton.height
-      color: Colors.surface_container
+      color: Theme.colors.surface_container
       radius: 4
 
       Behavior on implicitHeight {

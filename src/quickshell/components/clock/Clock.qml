@@ -1,10 +1,10 @@
 import QtQuick
 import Quickshell
 import "../../"
-import "../utils"
+import "../../utils"
 
 StyledButton {
-  property bool isVertical: Config.settings.panel.position.match(/^(left|right)$/)                          
+  property bool isVertical: Config.settings.panel.position.isVertical()                          
   property string panelPosition: Config.settings.panel.position
   property string dateFormat: (isVertical) ? Config.settings.clock.verticalFormat : Config.settings.clock.horizontalFormat
   
