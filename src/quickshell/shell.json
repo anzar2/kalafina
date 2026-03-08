@@ -1,8 +1,8 @@
 {
   "theme": "dark",
   "color": "auto",
-  "fontFamily": "Ubuntu Sans",
-  "fontScale": 1,
+  "fontFamily": "Agave Nerd Font",
+  "fontScale": 1.1,
   "shellFrame": {
     "enabled": true,
     "borderWidth": 4,
@@ -10,9 +10,9 @@
   },
   "workspaces": {
     "workspaceSpacing": 8,
-    "iconSpacing": 4,
+    "iconSpacing": 12,
     "iconSize": 16,
-    "radius": 24
+    "radius": 16
   },
   "panel": {
     "size": 40,

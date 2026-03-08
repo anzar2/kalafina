@@ -1,3 +1,4 @@
+//@ pragma IconTheme Papirus
 pragma ComponentBehavior: Bound
 import Quickshell
 import QtQuick
@@ -38,7 +39,12 @@ ShellRoot {
     active: (Config.settings.panel.position === "left")
   }
 
-  Loader {
+  Loader {  StyledText {
+      anchors.verticalCenter: parent.verticalCenter
+      text: ToplevelManager.activeToplevel.title
+      size: 9
+      font.bold: true
+    }
     id: rightPanel
     sourceComponent: VPanel { 
       anchors.top: true

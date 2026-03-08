@@ -76,7 +76,10 @@ Rectangle {
                   }
                   return 16
                 }
-                Component.onCompleted: Hyprland.refreshToplevels()
+                Component.onCompleted: { 
+                  Hyprland.refreshToplevels() 
+                  console.log(IconsMap.get(modelData.lastIpcObject.initialClass))
+                }
               }
             }
           }

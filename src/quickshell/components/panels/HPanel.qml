@@ -35,6 +35,8 @@ StyledPanelWindow {
     spacing: Config.settings.panel.center.moduleSpacing
     anchors.centerIn: parent
   }
+
+
   
   // // Right modules
   Row {
