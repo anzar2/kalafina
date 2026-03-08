@@ -6,7 +6,9 @@ QtObject {
   readonly property var iconsMap: ({
     "zen": "zen-browser",
     "vivaldi-stable": "vivaldi",
-    "org.qbittorrent.qBittorrent": "qbittorrent"
+    "org.qbittorrent.qBittorrent": "qbittorrent",
+    "code-oss": "com.visualstudio.code.oss",
+    "GitHub Desktop": "github-desktop"
   })
 
   function get(className) {
