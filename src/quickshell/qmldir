@@ -1,0 +1,6 @@
+singleton Colors 1.0 theme/Colors.qml
+singleton Config 1.0 config/Config.qml
+singleton AudioService 1.0 services/AudioService.qml
+singleton NotificationService 1.0 services/NotificationService.qml
+singleton NerdIcons 1.0 config/NerdIcons.qml
+singleton IconsMap 1.0 config/IconsMap.qml

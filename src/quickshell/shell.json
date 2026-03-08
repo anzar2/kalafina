@@ -1,0 +1,53 @@
+{
+  "theme": "dark",
+  "color": "auto",
+  "fontFamily": "Ubuntu Sans",
+  "fontScale": 1,
+  "shellFrame": {
+    "enabled": true,
+    "borderWidth": 4,
+    "borderRadius": 4
+  },
+  "panel": {
+    "position": "top",
+    "size": 40,
+    "start": {
+      "moduleSpacing": 8
+    },
+    "center": {
+      "moduleSpacing": 8
+    },
+    "end": {
+      "moduleSpacing": 8
+    }
+  },
+  "notifications": {
+    "anchors": {
+      "top": false,
+      "right": true,
+      "left": false,
+      "bottom": true
+    }
+  },
+  "systemTray": {
+    "padding": 4,
+    "spacing": 8,
+    "iconSize": 16
+  },
+  "osd": {
+    "displayTime": 2500
+  },
+  "clock": {
+    "horizontalFormat": "hh:mm",
+    "verticalFormat": "hh\nmm",
+    "fontSize": 15,
+    "bold": true
+  },
+  "workspaces": {
+    "indicatorSpacing": 8,
+    "indicatorSize": 8,
+    "indicatorRadius": 10,
+    "borderRadius": 4,
+    "padding": 6
+  }
+}
