@@ -73,7 +73,7 @@ install_dotfiles() {
       [[ "$skip" == "y" ]] && continue
     fi
     
-    if [[ -d "$CONFIG_PATH/$folder" ]]; then
+    if [[ -d "$CONFIG_PATH/$folder" || -L "$CONFIG_PATH/$folder" ]]; then
       echo "Backup created for $folder."
       cp -rL "$CONFIG_PATH/$folder/" "$BACKUP_PATH"
       rm -rf "$CONFIG_PATH/$folder"
